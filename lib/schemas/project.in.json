@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "output_format": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "json",
+                "xml"
+            ],
+            "default": "xml"
+        },
+        "search": {
+            "required": false,
+            "type": "string"
+        },
+        "portal": {
+            "required": false,
+            "type": "string"
+        },
+        "page": {
+            "required": false,
+            "type": "integer"
+        },
+        "city": {
+            "required": false,
+            "type": "string"
+        },
+        "province": {
+            "required": false,
+            "type": "string"
+        },
+        "region": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

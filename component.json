@@ -1,0 +1,72 @@
+{
+    "title": "High Performance Building Database",
+    "description": "The Buildings Database is a shared resource for the building industry. The Database, developed by the U.S. Department of Energy and the National Renewable Energy Laboratory (NREL), is a unique central repository of in-depth information and data on high-performance, green building projects across the United States and abroad.  ",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/nrel.gov/building-case-studies/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://developer.nrel.gov/api/building-case-studies",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "api_key": {
+                "label": "api_key (api_key)",
+                "viewClass": "TextFieldView",
+                "note": "API Key"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "project": {
+            "main": "./lib/actions/project.js",
+            "title": "A filterable list of projects.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/project.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "document": {
+            "main": "./lib/actions/document.js",
+            "title": "Project Details",
+            "description": "This API allows users to request metadata associated with the specific Document.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/document.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

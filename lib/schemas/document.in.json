@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "output_format": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "json",
+                "xml"
+            ],
+            "default": "json"
+        },
+        "project_id": {
+            "required": true,
+            "type": "integer"
+        }
+    }
+}
